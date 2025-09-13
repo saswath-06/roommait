@@ -1,0 +1,81 @@
+{
+  "version": "1.0.0",
+  "description": "Generic 3D models for RoomGenie AR placement",
+  "models": [
+    {
+      "model_id": "generic-desk-chair",
+      "category": "seating",
+      "subcategory": "office-chair",
+      "display_name": "Desk Chair",
+      "description": "Office and study seating",
+      "model_url": "/models/generic-desk-chair.glb",
+      "thumbnail_url": "/images/generic-desk-chair-thumb.jpg",
+      "typical_dimensions": {
+        "width": 24,
+        "depth": 26,
+        "height": 38,
+        "units": "inches"
+      }
+    },
+    {
+      "model_id": "generic-bean-bag",
+      "category": "seating",
+      "subcategory": "casual-seating",
+      "display_name": "Bean Bag",
+      "description": "Casual floor seating",
+      "model_url": "/models/generic-bean-bag.glb",
+      "thumbnail_url": "/images/generic-bean-bag-thumb.jpg",
+      "typical_dimensions": {
+        "width": 30,
+        "depth": 30,
+        "height": 24,
+        "units": "inches"
+      }
+    },
+    {
+      "model_id": "generic-shelf-unit",
+      "category": "storage",
+      "subcategory": "shelving",
+      "display_name": "Shelf Unit",
+      "description": "Multi-level storage shelving",
+      "model_url": "/models/generic-shelf-unit.glb",
+      "thumbnail_url": "/images/generic-shelf-unit-thumb.jpg",
+      "typical_dimensions": {
+        "width": 30,
+        "depth": 12,
+        "height": 60,
+        "units": "inches"
+      }
+    },
+    {
+      "model_id": "generic-desk-lamp",
+      "category": "lighting",
+      "subcategory": "task-lighting",
+      "display_name": "Desk Lamp",
+      "description": "Adjustable task lighting",
+      "model_url": "/models/generic-desk-lamp.glb",
+      "thumbnail_url": "/images/generic-desk-lamp-thumb.jpg",
+      "typical_dimensions": {
+        "width": 8,
+        "depth": 8,
+        "height": 20,
+        "units": "inches"
+      }
+    },
+    {
+      "model_id": "generic-plant",
+      "category": "decor",
+      "subcategory": "plants",
+      "display_name": "Plant",
+      "description": "Indoor plant decoration",
+      "model_url": "/models/generic-plant.glb",
+      "thumbnail_url": "/images/generic-plant-thumb.jpg",
+      "typical_dimensions": {
+        "width": 12,
+        "depth": 12,
+        "height": 18,
+        "units": "inches"
+      }
+    }
+  ]
+}
