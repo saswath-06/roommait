@@ -1,7 +1,7 @@
 {
-  "name": "roomgenie-monorepo",
+  "name": "roomait-monorepo",
   "version": "1.0.0",
-  "description": "RoomGenie - AR Interior Design for College Students",
+  "description": "roomait - AR Interior Design for College Students",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -28,6 +28,6 @@
     "type": "git",
     "url": "https://github.com/[YOUR_USERNAME]/dorm.io.git"
   },
-  "author": "RoomGenie Team",
+  "author": "roomait Team",
   "license": "MIT"
 }

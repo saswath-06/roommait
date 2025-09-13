@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>🏠 RoomGenie</Text>
+      <Text style={styles.title}>🏠 roomait</Text>
       <Text style={styles.subtitle}>AR Interior Design for Students</Text>
       <Text style={styles.description}>
         Transform your space with AR + AI Magic

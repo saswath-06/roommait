@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(
-    title="RoomGenie API",
+    title="roomait API",
     description="AR Interior Design API for College Students",
     version="1.0.0"
 )
@@ -26,7 +26,7 @@ app.add_middleware(
 async def root():
     """Health check endpoint"""
     return {
-        "message": "RoomGenie API is running!",
+        "message": "roomait API is running!",
         "version": "1.0.0",
         "status": "healthy"
     }

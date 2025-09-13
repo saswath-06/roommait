@@ -1,4 +1,4 @@
-# RoomGenie - AR Interior Design for Students
+# roomait - AR Interior Design for Students
 
 **Version:** MVP Ready  
 **Status:** Documentation Complete  
@@ -6,11 +6,11 @@
 
 ## 🎯 Project Overview
 
-RoomGenie is an AR interior design app specifically built for college students. It combines **generic 3D models** for spatial planning with **AI-powered real product discovery** to help students visualize, design, and purchase furniture within their budget ($15-200).
+roomait is an AR interior design app specifically built for college students. It combines **generic 3D models** for spatial planning with **AI-powered real product discovery** to help students visualize, design, and purchase furniture within their budget ($15-200).
 
 ### Key Innovation: Hybrid AR + AI Approach
 
-Unlike traditional AR apps that require massive 3D product catalogs, RoomGenie uses:
+Unlike traditional AR apps that require massive 3D product catalogs, roomait uses:
 
 1. **8-12 generic 3D models** for fast AR visualization and spatial planning
 2. **AI-powered product discovery** that finds real products from any store when users tap placed objects
@@ -150,4 +150,4 @@ expo start
 ---
 
 **Built for Hackathon Success** 🏆  
-This documentation provides everything needed to build RoomGenie from concept to deployment, with clear specifications for both hackathon MVP and long-term growth.
+This documentation provides everything needed to build roomait from concept to deployment, with clear specifications for both hackathon MVP and long-term growth.

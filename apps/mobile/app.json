@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "RoomGenie",
-    "slug": "roomgenie",
+    "name": "roomait",
+    "slug": "roomait",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,14 +16,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.roomgenie.app"
+      "bundleIdentifier": "com.roomait.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#8B5CF6"
       },
-      "package": "com.roomgenie.app"
+      "package": "com.roomait.app"
     },
     "web": {
       "favicon": "./assets/favicon.png",
