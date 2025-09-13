@@ -1,0 +1,33 @@
+{
+  "name": "roomgenie-monorepo",
+  "version": "1.0.0",
+  "description": "RoomGenie - AR Interior Design for College Students",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\"",
+    "dev:backend": "cd apps/backend && uvicorn src.main:app --reload --port 8000",
+    "dev:mobile": "cd apps/mobile && expo start",
+    "build": "npm run build:backend && npm run build:mobile",
+    "build:backend": "cd apps/backend && echo 'Backend build complete'",
+    "build:mobile": "cd apps/mobile && expo build:web",
+    "test": "echo 'Tests will be added'",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/[YOUR_USERNAME]/dorm.io.git"
+  },
+  "author": "RoomGenie Team",
+  "license": "MIT"
+}
