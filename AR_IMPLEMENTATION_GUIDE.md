@@ -5,7 +5,7 @@ This guide covers the complete AR (Augmented Reality) implementation with 3D fur
 ## 🎯 **What We've Built**
 
 ### **1. Real AR Camera System**
-- **3D Room Scanning**: Uses expo-gl and Three.js for real 3D rendering
+- **3D Room Scanning**: Uses simplified AR interface compatible with Expo Go
 - **Plane Detection**: Identifies floors, walls, and ceilings
 - **Real-time Placement**: Tap to place furniture in 3D space
 - **Backend Integration**: Saves placements to Railway backend
@@ -53,7 +53,7 @@ AR Camera → Placement Mode → Tap to Place → Multiple Items
 
 ### **AR Scene (ARScene.tsx)**
 ```typescript
-- Uses expo-gl for 3D rendering
+- Uses React Native components for AR-like experience
 - Three.js for 3D geometries and materials
 - Raycasting for touch-to-3D-position conversion
 - Plane detection simulation (can be enhanced with ARKit/ARCore)
@@ -99,11 +99,8 @@ AR Camera → Placement Mode → Tap to Place → Multiple Items
 ### **New Dependencies Added**
 ```json
 {
-  "expo-gl": "Latest",
-  "expo-gl-cpp": "Latest", 
-  "expo-three": "Latest",
-  "three": "Latest",
-  "@types/three": "Latest"
+  "expo-camera": "Latest",
+  "expo-router": "Latest"
 }
 ```
 
@@ -112,9 +109,7 @@ AR Camera → Placement Mode → Tap to Place → Multiple Items
 {
   "plugins": [
     "expo-camera",
-    "expo-router",
-    "expo-gl",
-    "expo-gl-cpp"
+    "expo-router"
   ]
 }
 ```

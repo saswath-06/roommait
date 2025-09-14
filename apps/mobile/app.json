@@ -26,10 +26,7 @@
       },
       "package": "com.roomait.app",
       "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO",
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
+        "android.permission.CAMERA"
       ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
@@ -42,9 +39,7 @@
     ],
     "plugins": [
       "expo-camera",
-      "expo-router",
-      "expo-gl",
-      "expo-gl-cpp"
+      "expo-router"
     ],
     "scheme": "roomait",
     "extra": {
