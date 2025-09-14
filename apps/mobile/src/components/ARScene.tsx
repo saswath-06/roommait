@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, PanResponder, Alert } from 'react-native';
-import { GLView } from 'expo-gl';
-import { Renderer, Scene, PerspectiveCamera, Mesh, BoxGeometry, MeshBasicMaterial, Vector3, Raycaster, Vector2 } from 'three';
-import { ExpoWebGLRenderingContext, ExpoGLObjectManager } from 'expo-gl';
+
+// Note: This is a simplified AR component for Expo Go compatibility
+// For full 3D AR, use expo-gl with EAS builds
 
 interface ARSceneProps {
   onPlaneDetected?: (plane: PlaneData) => void;
