@@ -7,14 +7,23 @@ Your phone's callback isn't working because:
 - **Friend's phone**: Probably still using old IP that's in Auth0
 - **Solution**: Add BOTH IPs or use universal patterns
 
+**References from Auth0 Community:**
+- [Callback URL Mismatch with Expo](https://community.auth0.com/t/help-needed-callback-url-mismatch-error-with-auth0-and-expo-react-native/185005)
+- [Bundle Identifier Issues](https://community.auth0.com/t/callback-url-is-mismatch-but-it-is-already-set-for-expo-application/119648)
+
 ## 📱 **Complete Auth0 Dashboard Setup**
 
 Go to: **Auth0 Dashboard** → **Applications** → **roomait** → **Settings**
 
-### **🔗 Allowed Callback URLs:**
+### **🔗 Allowed Callback URLs (Copy ALL of these):**
 ```
 roomait://auth,
-exp://localhost:8081/--/auth,
+roomait://dev-au2yf8c1n0hrml0i.us.auth0.com/ios/com.roomait.app/callback,
+roomait://dev-au2yf8c1n0hrml0i.us.auth0.com/android/com.roomait.app/callback,
+com.roomait.app.auth0://dev-au2yf8c1n0hrml0i.us.auth0.com/ios/com.roomait.app/callback,
+com.roomait.app.auth0://dev-au2yf8c1n0hrml0i.us.auth0.com/android/com.roomait.app/callback,
+exp://localhost:8082/--/auth,
+exp://192.168.2.29:8082/--/auth,
 exp://192.168.2.29:8081/--/auth,
 https://auth.expo.io/@saswath06/roomait,
 https://u.expo.dev/44c5fe12-8e22-47ba-aed3-8672e275f568/auth,
@@ -24,7 +33,12 @@ exp://u.expo.dev/44c5fe12-8e22-47ba-aed3-8672e275f568/--/auth
 ### **🚪 Allowed Logout URLs:**
 ```
 roomait://logout,
-exp://localhost:8081/--/logout,
+roomait://dev-au2yf8c1n0hrml0i.us.auth0.com/ios/com.roomait.app/logout,
+roomait://dev-au2yf8c1n0hrml0i.us.auth0.com/android/com.roomait.app/logout,
+com.roomait.app.auth0://dev-au2yf8c1n0hrml0i.us.auth0.com/ios/com.roomait.app/logout,
+com.roomait.app.auth0://dev-au2yf8c1n0hrml0i.us.auth0.com/android/com.roomait.app/logout,
+exp://localhost:8082/--/logout,
+exp://192.168.2.29:8082/--/logout,
 exp://192.168.2.29:8081/--/logout,
 https://auth.expo.io/@saswath06/roomait/logout,
 https://u.expo.dev/44c5fe12-8e22-47ba-aed3-8672e275f568/logout,
@@ -33,9 +47,10 @@ exp://u.expo.dev/44c5fe12-8e22-47ba-aed3-8672e275f568/--/logout
 
 ### **🌐 Allowed Web Origins:**
 ```
-exp://localhost:8081,
+exp://localhost:8082,
+exp://192.168.2.29:8082,
 exp://192.168.2.29:8081,
-https://localhost:8081,
+https://localhost:8082,
 https://u.expo.dev,
 https://auth.expo.io
 ```
@@ -86,13 +101,24 @@ exp://172.16.*:8081/--/auth
 - **Custom Scheme**: `roomait://auth`
 - **Works Always**: Independent of network
 
-## 🛠️ **Quick Fix Steps**
+## 🛠️ **Critical Fixes from Auth0 Community**
 
-1. **Copy ALL URLs above** into Auth0 dashboard
-2. **Save settings** in Auth0
-3. **Restart Expo app** (`npx expo start --clear`)
-4. **Test login** on your phone
-5. **Test on friend's phone** to confirm both work
+Based on [Auth0 Community Posts](https://community.auth0.com/t/help-needed-callback-url-mismatch-error-with-auth0-and-expo-react-native/185005), the key issues are:
+
+### **⚠️ Common Mistakes:**
+1. **Bundle Identifier Mismatch**: Your app.json shows `com.roomait.app` but Auth0 might expect different format
+2. **Missing Platform-Specific URLs**: Auth0 requires both iOS and Android specific callback patterns
+3. **Port Changes**: Expo often switches ports (8081 → 8082), breaking callbacks
+4. **EAS vs Expo Go**: Different URL patterns for development vs production
+
+### **✅ Verified Solution Steps:**
+
+1. ✅ **Auth0 Domain**: `dev-au2yf8c1n0hrml0i.us.auth0.com` (already updated above!)
+2. **Copy ALL URLs above** into Auth0 dashboard (don't cherry-pick!)
+3. **Verify Bundle ID**: Ensure `com.roomait.app` matches exactly in Auth0
+4. **Save settings** in Auth0 and wait 30 seconds for propagation
+5. **Restart Expo**: `npx expo start --clear --port 8082`
+6. **Test both phones** - should work immediately
 
 ## 📊 **Current Status**
 

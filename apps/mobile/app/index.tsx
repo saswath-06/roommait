@@ -7,7 +7,7 @@ export default function HomeScreen() {
   const { isAuthenticated, user } = useAuth();
   
   const handleStartAR = () => {
-    router.push('/ar-camera-simple');
+    router.push('/ar-camera');
   };
 
   const handleViewGallery = () => {
@@ -44,13 +44,13 @@ export default function HomeScreen() {
         {/* Action Buttons */}
         <View style={styles.actionButtons}>
           <TouchableOpacity style={styles.primaryButton} onPress={handleStartAR}>
-            <MaterialCommunityIcons name="camera-outline" size={20} color="white" />
-            <Text style={styles.primaryButtonText}>Try AR Camera</Text>
+            <MaterialCommunityIcons name="cube-scan" size={20} color="white" />
+            <Text style={styles.primaryButtonText}>Start AR Room Design</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.secondaryButton} onPress={handleViewGallery}>
             <Feather name="grid" size={18} color="#10c0df" />
-            <Text style={styles.secondaryButtonText}>Browse Catalog</Text>
+            <Text style={styles.secondaryButtonText}>Browse Furniture Catalog</Text>
           </TouchableOpacity>
           
           {!isAuthenticated && (
@@ -207,6 +207,24 @@ const styles = StyleSheet.create({
     color: '#10c0df',
     fontSize: 18,
     fontFamily: 'Fraunces-SemiBold',
+    marginLeft: 8,
+  },
+  tertiaryButton: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderRadius: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+    marginTop: 8,
+  },
+  tertiaryButtonText: {
+    color: '#6b7280',
+    fontSize: 16,
+    fontFamily: 'Fraunces-Regular',
     marginLeft: 8,
   },
   signInButton: {

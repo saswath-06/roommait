@@ -4,6 +4,9 @@
   },
   "build": {
     "development": {
+      "android": {
+        "buildType": "apk"
+      },
       "developmentClient": true,
       "distribution": "internal",
       "channel": "development",
@@ -12,6 +15,9 @@
       }
     },
     "preview": {
+      "android": {
+        "buildType": "apk"
+      },
       "distribution": "internal",
       "channel": "preview",
       "env": {
@@ -19,6 +25,9 @@
       }
     },
     "production": {
+      "android": {
+        "buildType": "apk"
+      },
       "channel": "production",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://roomait-backend-production.up.railway.app"

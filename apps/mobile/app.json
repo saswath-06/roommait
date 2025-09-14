@@ -16,7 +16,8 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.roomait.app",
       "infoPlist": {
-        "NSCameraUsageDescription": "This app uses camera for AR furniture placement"
+        "NSCameraUsageDescription": "This app uses camera for AR furniture placement",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -26,7 +27,8 @@
       },
       "package": "com.roomait.app",
       "permissions": [
-        "android.permission.CAMERA"
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
       ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
