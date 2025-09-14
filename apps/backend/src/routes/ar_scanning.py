@@ -6,9 +6,9 @@ import json
 import uuid
 from datetime import datetime
 
-from ..database import get_db
-from ..auth import get_current_user_optional
-from ..models.database_models import RoomScan, FurniturePlacement, User
+from src.database import get_db
+from src.auth import get_current_user_optional
+from src.models.database_models import RoomScan, FurniturePlacement, User
 
 router = APIRouter(prefix="/api/v1/ar", tags=["AR Scanning"])
 

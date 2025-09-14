@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Import database components
-from .database import engine, get_db, Base
-from .models.database_models import User, GenericModel, RoomDesign, ProductSearch, RoomScan, FurniturePlacement
-from .auth import get_current_user, get_current_user_optional
+from src.database import engine, get_db, Base
+from src.models.database_models import User, GenericModel, RoomDesign, ProductSearch, RoomScan, FurniturePlacement
+from src.auth import get_current_user, get_current_user_optional
 
 # Import route modules
-from .routes.ai_recommendations import router as ai_router
-from .routes.ar_scanning import router as ar_router
+from src.routes.ai_recommendations import router as ai_router
+from src.routes.ar_scanning import router as ar_router
 
 # Create tables on startup
 Base.metadata.create_all(bind=engine)

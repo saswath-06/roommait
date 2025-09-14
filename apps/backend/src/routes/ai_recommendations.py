@@ -8,9 +8,9 @@ import json
 import asyncio
 import httpx
 
-from ..database import get_db
-from ..auth import get_current_user_optional
-from ..models.database_models import ProductSearch, User
+from src.database import get_db
+from src.auth import get_current_user_optional
+from src.models.database_models import ProductSearch, User
 
 router = APIRouter(prefix="/api/v1/ai", tags=["AI Recommendations"])
 
