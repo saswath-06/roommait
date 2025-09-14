@@ -11,3 +11,4 @@ httpx==0.25.2
 pydantic==2.5.0
 pydantic-settings==2.1.0
 python-dotenv==1.0.0
+auth0-python==4.6.0

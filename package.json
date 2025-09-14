@@ -8,14 +8,32 @@
     "packages/*"
   ],
   "scripts": {
+    "setup": "./setup.sh",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\"",
     "dev:backend": "cd apps/backend && uvicorn src.main:app --reload --port 8000",
-    "dev:mobile": "cd apps/mobile && expo start",
+    "dev:mobile": "cd apps/mobile && npm start",
+    "dev:full": "node scripts/dev.js setup && npm run dev",
+    "start": "npm run dev",
+    "start:mobile": "cd apps/mobile && npm start",
+    "start:backend": "npm run dev:backend",
     "build": "npm run build:backend && npm run build:mobile",
     "build:backend": "cd apps/backend && echo 'Backend build complete'",
     "build:mobile": "cd apps/mobile && expo build:web",
+    "db:init": "cd apps/backend && python src/init_db.py",
+    "db:seed": "curl -X POST http://localhost:8000/api/v1/models/seed",
+    "db:reset": "npm run db:init && npm run db:seed",
+    "health": "node scripts/dev.js health",
+    "check": "node scripts/dev.js check",
+    "mobile:build:ios": "cd apps/mobile && eas build --platform ios",
+    "mobile:build:android": "cd apps/mobile && eas build --platform android",
+    "mobile:build:all": "cd apps/mobile && eas build --platform all",
+    "mobile:submit:ios": "cd apps/mobile && eas submit --platform ios",
+    "mobile:submit:android": "cd apps/mobile && eas submit --platform android",
     "test": "echo 'Tests will be added'",
-    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules"
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules",
+    "logs:backend": "cd apps/backend && tail -f *.log 2>/dev/null || echo 'No log files found'",
+    "help": "node scripts/dev.js help",
+    "mobile": "./start-mobile.sh"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
