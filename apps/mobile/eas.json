@@ -5,14 +5,30 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "channel": "development",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://roomait-backend-production.up.railway.app"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "channel": "preview",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://roomait-backend-production.up.railway.app"
+      }
     },
-    "production": {}
+    "production": {
+      "channel": "production",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://roomait-backend-production.up.railway.app"
+      }
+    }
   },
   "submit": {
     "production": {}
+  },
+  "update": {
+    "url": "https://u.expo.dev/44c5fe12-8e22-47ba-aed3-8672e275f568"
   }
 }

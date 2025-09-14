@@ -11,7 +11,15 @@
     "build:ios": "eas build --platform ios",
     "build:all": "eas build --platform all",
     "submit:android": "eas submit --platform android",
-    "submit:ios": "eas submit --platform ios"
+    "submit:ios": "eas submit --platform ios",
+    "deploy": "node ../../scripts/deploy-mobile.js",
+    "deploy:dev": "eas build --platform all --profile development",
+    "deploy:preview": "eas build --platform all --profile preview",
+    "deploy:prod": "eas build --platform all --profile production",
+    "update": "eas update --auto",
+    "update:dev": "eas update --auto --branch development",
+    "update:preview": "eas update --auto --branch preview",
+    "update:prod": "eas update --auto --branch production"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
