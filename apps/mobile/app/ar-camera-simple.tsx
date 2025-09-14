@@ -108,11 +108,18 @@ export default function ARCameraSimple() {
 
   useEffect(() => {
     if (permission?.granted && arMode === 'scanning') {
+      console.log('🔍 Starting room scanning simulation...');
       simulateRoomScanning();
     }
   }, [permission, arMode]);
 
   const simulateRoomScanning = () => {
+    console.log('🎯 Starting scanning simulation...');
+    
+    // Reset progress
+    setScanProgress(0);
+    progressAnimation.setValue(0);
+    
     // Simulate progressive room scanning
     const scanSteps = [
       { progress: 0.2, message: 'Detecting floor surface...' },
@@ -127,30 +134,36 @@ export default function ARCameraSimple() {
     const animateStep = () => {
       if (currentStep < scanSteps.length) {
         const step = scanSteps[currentStep];
+        console.log(`📊 Scanning step ${currentStep + 1}: ${step.message} (${step.progress * 100}%)`);
         
         Animated.timing(progressAnimation, {
           toValue: step.progress,
-          duration: 1000,
+          duration: 1500, // Slightly slower for better visual feedback
           useNativeDriver: false,
         }).start(() => {
           setScanProgress(step.progress);
           currentStep++;
           
           if (currentStep < scanSteps.length) {
-            setTimeout(animateStep, 500);
+            setTimeout(animateStep, 800); // Longer pause between steps
           } else {
-            setTimeout(() => setARMode('placement'), 1000);
+            console.log('✅ Scanning complete! Moving to placement mode...');
+            setTimeout(() => setARMode('placement'), 1500);
           }
         });
       }
     };
 
-    animateStep();
+    // Start scanning after a brief delay
+    setTimeout(() => {
+      animateStep();
+    }, 500);
   };
 
   const handleRequestPermission = async () => {
     const result = await requestPermission();
     if (result.granted) {
+      console.log('📷 Camera permission granted, starting scanning...');
       setARMode('scanning');
     } else {
       Alert.alert(
@@ -276,7 +289,17 @@ export default function ARCameraSimple() {
 
           <View style={styles.scanningStats}>
             <Text style={styles.statText}>Room: {roomDimensions.width}ft × {roomDimensions.height}ft</Text>
-            <Text style={styles.statText}>Surfaces Detected: 3</Text>
+            <Text style={styles.statText}>Surfaces Detected: {Math.floor(scanProgress * 5)}</Text>
+            
+            <TouchableOpacity 
+              style={styles.skipButton}
+              onPress={() => {
+                console.log('⏭️ User skipped scanning');
+                setARMode('placement');
+              }}
+            >
+              <Text style={styles.skipButtonText}>Skip Scanning</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </CameraView>
@@ -495,6 +518,18 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     marginBottom: 40,
+  },
+  skipButton: {
+    backgroundColor: 'rgba(139, 92, 246, 0.8)',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    marginTop: 12,
+  },
+  skipButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   statText: {
     color: '#FFFFFF',
