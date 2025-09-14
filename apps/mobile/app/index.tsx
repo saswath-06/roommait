@@ -7,7 +7,7 @@ export default function HomeScreen() {
   const { isAuthenticated, user } = useAuth();
   
   const handleStartAR = () => {
-    router.push('/ar-camera');
+    router.push('/ar-camera-simple');
   };
 
   const handleViewGallery = () => {

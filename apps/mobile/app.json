@@ -42,7 +42,9 @@
     ],
     "plugins": [
       "expo-camera",
-      "expo-router"
+      "expo-router",
+      "expo-gl",
+      "expo-gl-cpp"
     ],
     "scheme": "roomait",
     "extra": {
