@@ -1,153 +1,191 @@
-# roomait - AR Interior Design for Students
+# 🏠 roomait - AR Interior Design for Students
 
-**Version:** MVP Ready  
-**Status:** Documentation Complete  
-**Target:** Hackathon + Post-Launch Growth
+[![React Native](https://img.shields.io/badge/React%20Native-0.74-blue.svg)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo-51-purple.svg)](https://expo.dev/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)](https://fastapi.tiangolo.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 
-## 🎯 Project Overview
+**Production-ready AR interior design app for college students**
 
-roomait is an AR interior design app specifically built for college students. It combines **generic 3D models** for spatial planning with **AI-powered real product discovery** to help students visualize, design, and purchase furniture within their budget ($15-200).
+## 🎯 What is roomait?
 
-### Key Innovation: Hybrid AR + AI Approach
+roomait is an AR furniture placement app that helps college students visualize and shop for furniture that fits their space and budget. Using real motion sensors and 3D rendering, students can:
 
-Unlike traditional AR apps that require massive 3D product catalogs, roomait uses:
+- **Scan their room** using device motion sensors
+- **Place 3D furniture models** with touch-based placement
+- **See real products** that match their style and budget
+- **Buy directly** from integrated retailers
 
-1. **8-12 generic 3D models** for fast AR visualization and spatial planning
-2. **AI-powered product discovery** that finds real products from any store when users tap placed objects
-3. **Contextual recommendations** based on room size, budget, and style preferences
+## ✨ Key Features
 
-## 📚 Documentation Structure
+### 🔍 **Real AR Surface Detection**
+- Uses device accelerometer & gyroscope for surface detection
+- Three.js hardware-accelerated 3D rendering
+- Touch-based furniture placement with raycasting
+- Automatic fallback system for unsupported devices
 
-### 1. [projectscope.md](./projectscope.md) - Complete Project Foundation
-- **Vision & Market Analysis**: Target college students, $13B market opportunity
-- **Technical Architecture**: Full stack (React Native, FastAPI, PostgreSQL, OpenAI)
-- **Feature Specifications**: Room scanning, hybrid AR/AI system, e-commerce integration  
-- **Timeline & Resources**: 48-72 hour hackathon plan + 6-month roadmap
-- **Risk Assessment**: Technical challenges and mitigation strategies
+### 📱 **Production Mobile App**
+- React Native with Expo managed workflow
+- Real camera integration with 3D overlay
+- Comprehensive error handling and permissions
+- Cross-platform support (iOS/Android)
 
-### 2. [mvp.md](./mvp.md) - Focused Hackathon Implementation
-- **Core Features**: 8-12 generic models + AI product discovery system
-- **User Stories**: Detailed journey for "Emma the Freshman" persona
-- **Technical Scope**: Monorepo structure, Railway deployment, API integration
-- **Demo Strategy**: 4-5 minute presentation plan with backup options
-- **Success Metrics**: Measurable goals for hackathon and post-launch
+### 🔐 **Secure Authentication**
+- Auth0 integration with social login
+- Proper callback URL configuration
+- Works in development and production builds
 
-### 3. [design.md](./design.md) - Comprehensive UI/UX Specifications
-- **ASCII UI Mockups**: Complete app flow from onboarding to purchase
-- **AR Interface Design**: Object placement, manipulation, and product discovery
-- **Design System**: Colors, typography, components (NativeWind/Tailwind)
-- **Technical Specs**: 3D model requirements, API endpoints, database schema
-- **Accessibility**: WCAG compliance, mobile-first responsive design
+### 🛍️ **Smart Shopping Integration**
+- AI-powered product recommendations
+- Price comparison across retailers
+- Student-friendly budget filtering
+- Direct purchase links
 
-## 🚀 Quick Start Guide
+## 🚀 Quick Start
 
-### Development Team Setup
+### Prerequisites
+- Node.js 18+ and npm
+- Python 3.9+ and pip
+- Expo CLI (`npm install -g @expo/cli`)
+- iOS/Android device or simulator
+
+### 1. Clone & Install
 ```bash
-# Clone and setup monorepo
-git clone <repo-url>
-cd dorm.io
+git clone https://github.com/saswath-06/roommaite.git
+cd roomait
 npm install
+```
 
-# Setup backend
+### 2. Backend Setup
+```bash
 cd apps/backend
 pip install -r requirements.txt
+cp env.example .env
+# Edit .env with your configuration
 uvicorn src.main:app --reload
+```
 
-# Setup mobile app
+### 3. Mobile App Setup
+```bash
 cd apps/mobile
-expo start
+npm install
+npx expo start
 ```
 
-### Key Files to Understand First
-1. `projectscope.md` - Overall vision and technical architecture
-2. `mvp.md` - What to build for hackathon demo
-3. `design.md` - How it should look and work
+### 4. Scan QR Code
+- Open Expo Go app on your device
+- Scan the QR code from the terminal
+- Grant camera and motion permissions
 
-## 🎨 Core User Experience
+## 📱 App Flow
+
+1. **Welcome** → Create account or sign in
+2. **AR Permission** → Grant camera access  
+3. **Calibration** → 2-second sensor initialization
+4. **Surface Detection** → Move device to detect floors/walls
+5. **Furniture Placement** → Tap surfaces to place 3D models
+6. **Shopping** → Tap placed items to see real products
+7. **Purchase** → Buy directly from retailers
+
+## 🏗️ Architecture
 
 ```
-1. Student opens app → Quick 2-minute setup
-2. Scans dorm room → AR plane detection
-3. Places generic furniture models → Spatial planning
-4. Taps placed objects → AI finds real products
-5. Reviews recommendations → Price comparison across stores  
-6. Clicks to purchase → External store (Amazon, IKEA, Wayfair)
+roomait/
+├── apps/
+│   ├── mobile/          # React Native + Expo app
+│   │   ├── app/         # App screens (Expo Router)
+│   │   ├── src/         # Components, contexts, config
+│   │   └── assets/      # Images, fonts, models
+│   └── backend/         # FastAPI server
+│       ├── src/         # API routes, models, services
+│       └── requirements.txt
+├── packages/            # Shared types and constants
+├── docs/               # All documentation
+└── scripts/            # Deployment and dev scripts
 ```
 
-## 🛠 Technical Architecture Summary
+## 🔧 Tech Stack
 
-**Frontend:** React Native + Expo (AR capabilities)  
-**Backend:** FastAPI + PostgreSQL + Redis  
-**AI:** OpenAI GPT-4 for product discovery and recommendations  
-**Deployment:** Railway (monorepo with separate mobile/backend services)  
-**3D Models:** 8-12 generic GLB files (<3K polygons each)  
-**Product Data:** Live APIs from Amazon, Wayfair, IKEA  
+### Frontend
+- **React Native** + **Expo** (managed workflow)
+- **Three.js** + **expo-gl** (3D rendering)
+- **DeviceMotion** (real sensor data)
+- **TypeScript** (type safety)
+- **NativeWind** (styling)
 
-## 📊 Success Metrics
+### Backend  
+- **FastAPI** (Python API framework)
+- **PostgreSQL** (database)
+- **OpenAI API** (AI recommendations)
+- **Railway** (deployment)
 
-**Hackathon Demo:**
-- ✅ Room scan success rate >80%
-- ✅ Place 3+ generic models without crashes  
-- ✅ Tap-to-discover shows real products <5 seconds
-- ✅ Purchase flow to external store works 100%
+### AR Technology
+- **Motion sensors** (accelerometer/gyroscope)
+- **Camera integration** (live video feed)
+- **3D surface detection** (gravity vector analysis)
+- **Touch raycasting** (precise placement)
 
-**Post-Launch (Month 1):**
-- 1,000+ app downloads
-- 50+ room scans per week  
-- 15%+ AR view to purchase click conversion
-- 4.0+ app store rating
+## 📚 Documentation
 
-## 🎯 Target Market
+All detailed documentation is in the [`docs/`](./docs/) folder:
 
-**Primary Users:**
-- College students (ages 18-25)
+- **[Project Scope](./docs/projectscope.md)** - Complete vision, market analysis, technical architecture
+- **[MVP Features](./docs/mvp.md)** - Core features, user stories, demo strategy  
+- **[Design System](./docs/design.md)** - UI/UX specs, mockups, technical requirements
+- **[Auth0 Setup](./docs/AUTH0_COMPLETE_CALLBACK_URLS.md)** - Authentication configuration
+- **[Deployment Guide](./docs/EXPO_DEPLOYMENT_GUIDE.md)** - Production deployment steps
+
+## 🎯 Target Users
+
+**Primary:** College students (ages 18-25)
 - Living in dorms, apartments, shared housing
-- Budget: $15-200 per purchase
-- Tech-savvy, mobile-first
+- Budget: $15-200 per furniture purchase  
+- Tech-savvy, mobile-first generation
+- Need space-efficient furniture solutions
 
-**Market Opportunity:**
-- 20+ million US college students
-- $400-800 annual spending on room decor
-- $13 billion college housing market
-- Growing AR adoption in retail
+**Market:** 20+ million US college students, $13B housing market
 
-## 💡 Business Model
+## 🚦 Development Status
 
-**Revenue Streams:**
-- Affiliate commissions from retailer partnerships
-- Premium AI features (advanced recommendations)
-- University partnership programs
-- Student discount marketplace integration
+### ✅ Completed
+- [x] Real AR surface detection with motion sensors
+- [x] 3D furniture placement with Three.js rendering
+- [x] Touch-based interaction with raycasting
+- [x] Auth0 authentication with social login
+- [x] Production-ready error handling and fallbacks
+- [x] Cross-platform mobile app (iOS/Android)
+- [x] Comprehensive documentation
 
-## 🔄 Development Phases
+### 🔄 In Progress
+- [ ] Backend API integration
+- [ ] AI product recommendation system
+- [ ] Retailer integration (Amazon, IKEA, Wayfair)
+- [ ] User onboarding flow
 
-### Phase 1: Hackathon MVP (48-72 hours)
-- Basic room scanning
-- 8-12 generic 3D models  
-- AI product discovery
-- External store integration
-- Demo-ready user flow
+### 📋 Roadmap
+- [ ] Social features (room sharing)
+- [ ] Advanced AR features (occlusion, lighting)
+- [ ] University partnerships
+- [ ] Web dashboard
 
-### Phase 2: Enhancement (Months 1-2)  
-- Improved AR features
-- Expanded retailer partnerships
-- Advanced AI recommendations
-- User onboarding optimization
+## 🤝 Contributing
 
-### Phase 3: Growth (Months 3-6)
-- Social features (sharing, community)
-- Multi-room planning
-- University partnerships
-- Advanced analytics and optimization
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📞 Next Steps
+## 📄 License
 
-1. **For Developers**: Start with `mvp.md` for implementation roadmap
-2. **For Designers**: Review `design.md` for UI/UX specifications  
-3. **For Product**: Use `projectscope.md` for feature planning
-4. **For Demo**: Follow demo strategy in `mvp.md`
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙋‍♂️ Contact
+
+**Project Link:** [https://github.com/saswath-06/roommaite](https://github.com/saswath-06/roommaite)
 
 ---
 
-**Built for Hackathon Success** 🏆  
-This documentation provides everything needed to build roomait from concept to deployment, with clear specifications for both hackathon MVP and long-term growth.
+**Built with ❤️ for college students everywhere** 🎓
+
+*Making dorm rooms feel like home, one AR placement at a time.*

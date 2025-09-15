@@ -103,7 +103,7 @@ App Launch → Quick Signup → Room Scan → Object Placement → AI Chat → P
 ### 3. Monorepo Project Structure
 
 ```
-dorm.io/
+roomait/
 ├── README.md
 ├── package.json (workspace root)
 ├── railway.json (deployment config)

@@ -46,7 +46,7 @@ EXPO_PUBLIC_API_URL=https://roomait-api.railway.app
 1. **Connect GitHub Repository**:
    - Go to [Railway Dashboard](https://railway.app/dashboard)
    - Click "New Project" → "Deploy from GitHub repo"
-   - Select your `dorm.io` repository
+   - Select your `roomait` repository
    - Choose the `apps/backend` directory as the root
 
 2. **Add PostgreSQL Database**:
