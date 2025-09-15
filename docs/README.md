@@ -44,7 +44,7 @@ Unlike traditional AR apps that require massive 3D product catalogs, roomait use
 ### Development Team Setup
 ```bash
 # Clone and setup monorepo
-git clone https://github.com/saswath-06/roommaite.git
+git clone https://github.com/saswath-06/roommait.git
 cd roomait
 npm install
 

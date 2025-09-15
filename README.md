@@ -51,7 +51,7 @@ roomait is an AR furniture placement app that helps college students visualize a
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/saswath-06/roommaite.git
+git clone https://github.com/saswath-06/roommait.git
 cd roomait
 npm install
 ```
@@ -182,7 +182,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙋‍♂️ Contact
 
-**Project Link:** [https://github.com/saswath-06/roommaite](https://github.com/saswath-06/roommaite)
+**Project Link:** [https://github.com/saswath-06/roommait](https://github.com/saswath-06/roommait)
 
 ---
 
